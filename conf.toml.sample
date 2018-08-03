@@ -1,12 +1,14 @@
 [[pinboard]]
 api_token = ''
 
-[[twitter]]
+[[to_twitter]]
+name = ''
 consumer_key = ''
 consumer_secret = ''
 access_token_key = ''
 access_token_secret = ''
 
-[[telegram_bot]]
+[[to_telegram_bot]]
+name = ''
 api_token = ''
-channel_id = []
+chat_ids = []

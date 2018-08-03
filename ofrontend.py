@@ -2,14 +2,13 @@ import os
 import time
 import toml
 import pendulum
-from pendulum import timezone
 
-from lib.pinboard import pinboard
+from core.pinboard import pinboard
+from core.recipts.telegram import to_telegram
 
-RECIPTS = ['twitter', 'telegram']
 
 OFFSET = 120
-PERIOD = 120
+PERIOD = 60
 
 
 dir = os.path.dirname(os.path.realpath(__file__))
@@ -30,5 +29,4 @@ bookmark_feeds = [pinboard(c) for c in conf['pinboard']]
 bookmarks = [item for sublist in bookmark_feeds for item in sublist]
 bookmarks = [item for item in bookmarks if validator(item, start, end)]
 
-
-print(bookmarks)
+[to_telegram(bookmarks, c) for c in conf['to_telegram_bot']]
