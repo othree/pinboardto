@@ -8,7 +8,7 @@ def normalize(bookmark):
     return bookmark
 
 
-def pinboard(conf):
-    r = requests.get('https://api.pinboard.in/v1/posts/recent&format=json&auth_token=%s' % (conf['api_token']))
+def pinboard(config):
+    r = requests.get('https://api.pinboard.in/v1/posts/recent&format=json&auth_token=%s' % (config['api_token']))
     bookmarks = r.json()['posts']
     return map(normalize, bookmarks)
