@@ -1,3 +1,7 @@
+[main]
+offset = 120
+period = 60
+
 [[pinboard]]
 api_token = ''
 
