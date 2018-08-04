@@ -2,7 +2,7 @@ import time
 import requests
 
 
-def to_telegram(bookmarks, config):
+def to_telegram_bot(bookmarks, config):
     for bookmark in bookmarks:
         for chat_id in config['chat_ids']:
             data = {
