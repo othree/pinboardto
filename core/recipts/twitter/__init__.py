@@ -10,5 +10,5 @@ def to_twitter(bookmarks, config):
 
     for bookmark in bookmarks:
         r = api.PostUpdate('%s %s' % (bookmark['extended'] or bookmark['description'], bookmark['href']))
-        print '%s post to twitter %s' % (bookmark['href'], config['name'])
+        print('%s post to twitter %s' % (bookmark['href'], config['name']))
         time.sleep(.500)
