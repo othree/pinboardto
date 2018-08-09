@@ -4,8 +4,8 @@ import toml
 import pendulum
 
 from core.pinboard import pinboard
-from core.recipts.telegram import to_telegram_bot
-from core.recipts.twitter import to_twitter
+from core.recipes.telegram import to_telegram_bot
+from core.recipes.twitter import to_twitter
 
 
 dir = os.path.dirname(os.path.realpath(__file__))
