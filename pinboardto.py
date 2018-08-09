@@ -30,5 +30,5 @@ bookmark_feeds = [pinboard(c) for c in conf['pinboard']]
 bookmarks = [item for sublist in bookmark_feeds for item in sublist]
 bookmarks = [item for item in bookmarks if validator(item, start, end)]
 
-[to_telegram_bot(bookmarks, c) for c in conf['to_telegram_bot']]
-[to_twitter(bookmarks, c) for c in conf['to_twitter']]
+[to_telegram_bot(bookmarks, c) for c in conf.get('to_telegram_bot', [])]
+[to_twitter(bookmarks, c) for c in conf.get('to_twitter', [])]
