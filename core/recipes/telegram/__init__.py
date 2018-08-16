@@ -18,7 +18,7 @@ def getChatId(msg):
 
 
 def getText(msg):
-    return msg.get('message', {}).get('text', None)
+    return msg.get('message', {}).get('text', '')
 
 
 def getChatTexts(chat_id, msgs):
