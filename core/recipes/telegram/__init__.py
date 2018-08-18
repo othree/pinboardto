@@ -14,7 +14,11 @@ def getUpdates(api_token):
 
 
 def getChatId(msg):
-    return msg.get('message', {}).get('chat', {id: None})['id'] or None
+    try:
+        message = msg.get('message', msg.get('edited_message'), None)
+        return message['chat']['id']
+    except Exception:
+        return None
 
 
 def getText(msg):
