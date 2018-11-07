@@ -9,6 +9,8 @@ def to_twitter(bookmarks, config):
                       access_token_secret=config['access_token_secret'])
 
     for bookmark in bookmarks:
-        r = api.PostUpdate('%s %s' % (bookmark['extended'] or bookmark['description'], bookmark['href']))
-        print('%s post to twitter %s' % (bookmark['href'], config['name']))
+        text = bookmark['extended'] or bookmark['description'] or ''
+        text = text[:128]
+        r = api.PostUpdate('%s %s' % (text, bookmark['href']))
+        print('%s post to twitter %s [%s]' % (bookmark['href'], config['name'], r.status_code))
         time.sleep(.500)
