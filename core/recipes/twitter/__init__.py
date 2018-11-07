@@ -11,7 +11,15 @@ def to_twitter(bookmarks, config):
     for bookmark in bookmarks:
         text = bookmark['extended'] or bookmark['description'] or ''
         text = text[:128]
-        r = api.PostUpdate('%s %s' % (text, bookmark['href']))
+        url = bookmark['href']
+
+        if url.find('https://twitter.com') == 0:
+            attachment_url = url
+        else:
+            text = '%s %s' % (text, url)
+            attachment_url = None
+
+        r = api.PostUpdate(text, attachment_url=attachment_url)
         print('%s post to twitter %s' % (bookmark['href'], config['name']))
         print(status)
         time.sleep(.500)
