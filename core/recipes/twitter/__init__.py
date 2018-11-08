@@ -10,6 +10,7 @@ def to_twitter(bookmarks, config):
 
     for bookmark in bookmarks:
         text = bookmark['extended'] or bookmark['description'] or ''
+        text = re.sub('https://t.co/[\w]+', '', text)
         text = text[:128]
         url = bookmark['href']
 
