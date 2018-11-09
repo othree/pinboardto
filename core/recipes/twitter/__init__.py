@@ -1,3 +1,4 @@
+import re
 import time
 import twitter
 
@@ -22,5 +23,4 @@ def to_twitter(bookmarks, config):
 
         r = api.PostUpdate(text, attachment_url=attachment_url)
         print('%s post to twitter %s' % (bookmark['href'], config['name']))
-        print(status)
         time.sleep(.500)
