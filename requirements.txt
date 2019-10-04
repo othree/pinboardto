@@ -1,4 +1,4 @@
 toml==0.9.4
 requests==2.20.0
-pendulum==2.0.3
+pendulum==2.0.5
 python-twitter==3.4.2
